@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<include file="$(find cerlab_mecanum)/launch/single_robot.launch" />
+
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+	
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cerlab_mecanum)/urdf.rviz" required="true" />
+</launch>

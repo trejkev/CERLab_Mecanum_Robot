@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<robot>
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/cerlab_mecanum</robotNamespace>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="base_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xpyp_shaft">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xpyp">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/BlackTransparent</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xpyn_shaft">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xpyn">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/BlackTransparent</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xnyp_shaft">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xnyp">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/BlackTransparent</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xnyn_shaft">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="wheel_xnyn">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/BlackTransparent</material>
+    </gazebo>
+
+    <gazebo reference="base_scan_front">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="base_scan_back">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+</robot>
