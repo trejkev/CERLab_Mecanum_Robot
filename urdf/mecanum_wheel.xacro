@@ -31,12 +31,12 @@
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <xacro:if value="${reflect}">
                     <geometry>
-                        <mesh filename="package://cerlab_mecanum/meshes/wheels/omni_wheel_1.dae" />
+                        <mesh filename="package://cerlab_mecanum/meshes/omni_wheel_1.dae" scale="0.8 0.8 0.8"/>
                     </geometry>
                 </xacro:if>
                 <xacro:unless value="${reflect}">
                     <geometry>
-                        <mesh filename="package://cerlab_mecanum/meshes/wheels/omni_wheel_2.dae" />
+                        <mesh filename="package://cerlab_mecanum/meshes/omni_wheel_2.dae" scale="0.8 0.8 0.8"/>
                     </geometry>
                 </xacro:unless>
             </visual>

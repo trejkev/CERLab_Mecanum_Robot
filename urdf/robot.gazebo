@@ -13,6 +13,13 @@
         <material>Gazebo/Grey</material>
     </gazebo>
 
+    <gazebo reference="base_plate_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
     <gazebo reference="wheel_xpyp_shaft">
         <!-- Define friction coefficients and colors -->
         <mu1>0.2</mu1>
