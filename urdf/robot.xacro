@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="cerlab_mecanum">
+
+    <!-- Bring mecanum wheel to the model -->
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/mecanum_wheel.xacro" />
     
     <!-- Robot geometry parameters -->
     <xacro:property name="PI" value="3.1415926535897931" />
@@ -85,7 +88,11 @@
         </collision>
     </link>
 
-    <joint name="wheel_xpyp_joint" type="continuous">
+    <xacro:omni_wheel prefix="wheel_xpyp" parent="base_link" reflect="false">
+        <origin xyz="${base_link_length/2 + 0.05} ${base_link_width/2-0.065} ${-base_link_height/2}" rpy="0 ${PI/2} 0"/>
+    </xacro:omni_wheel>
+
+    <!-- <joint name="wheel_xpyp_joint" type="continuous">
         <origin xyz="${base_link_length/2 + 0.05} ${base_link_width/2-0.065} ${-base_link_height/2}" rpy="0 ${PI/2} 0"/>
         <parent link="base_link"/>
         <child link="wheel_xpyp"/>
@@ -109,12 +116,11 @@
         <inertial>
             <origin xyz="0 0 ${wheel_width/2}"/>
             <mass value="1"/>
-            <!-- Inertia based on cylinder -->
             <inertia ixx="100" ixy="0.0" ixz="0.0"
                      iyy="100" iyz="0.0"
                      izz="100"/>
         </inertial>
-    </link>
+    </link> -->
 
 
 
