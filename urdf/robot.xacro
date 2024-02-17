@@ -15,27 +15,6 @@
     <xacro:property name="shaft_length" value="0.1"       />
     <xacro:property name="shaft_radius" value="0.005"     />
 
-    <!-- LiDAR sensor parameters -->
-    <xacro:property name="s1_x_axis_front_location" value="0"  />
-    <xacro:property name="s1_y_axis_front_location" value="20" />
-    <xacro:property name="s2_x_axis_front_location" value="0"  />
-    <xacro:property name="s2_y_axis_front_location" value="-20"/>
-
-
-    <!-- Joint limits parameters -->
-
-    <!-- Main wheel limits -->
-    <xacro:property name="main_wheel_max_rev"      value="3.14" />
-    <xacro:property name="main_wheel_min_rev"      value="-3.14"/>
-    <xacro:property name="main_wheel_max_velocity" value="3.14" />
-    <xacro:property name="main_wheel_max_effort"   value="300"  />
-
-    <!-- Rollers limits-->
-    <xacro:property name="rollers_max_rev"      value="3.14" />
-    <xacro:property name="rollers_min_rev"      value="-3.14"/>
-    <xacro:property name="rollers_max_velocity" value="3.14" />
-    <xacro:property name="rollers_max_effort"   value="300"  />
-
 
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot.gazebo"/>
     
@@ -83,8 +62,6 @@
 
 
     <!-- Wheel PP -->
-
-    <!-- The shaft is just for visual effect -->
 
     <joint name="joint_wheel_xpyp_shaft" type="fixed">
         <parent link="base_link"/>
@@ -327,7 +304,6 @@
     <joint name="front_scan_joint" type="fixed">
         <parent link="base_link"/>
         <child link="base_scan_front"/>
-        <!-- <origin xyz="0.09 ${base_link_width/2-0.004} ${base_link_height/2+0.1}" rpy="0 0 0"/> era 0.04 en z y 0 en x -->
         <origin xyz="0 ${base_link_width/2-0.046} ${base_link_height/2+0.05}" rpy="0 0 0"/>
     </joint>
 
