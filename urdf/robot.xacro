@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="cerlab_mecanum">
 
-    <!-- Bring mecanum wheel to the model -->
-    <xacro:include filename="$(find cerlab_mecanum)/urdf/mecanum_wheel.xacro" />
+    <!-- Bring robot parts to the model -->
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/mecanum_wheel.xacro"/>
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/base_link.xacro"    />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/sensor.xacro"       />
     
     <!-- Robot geometry parameters -->
     <xacro:property name="PI" value="3.1415926535897931" />
@@ -15,8 +17,6 @@
     <!-- Wheel parameters -->
     <xacro:property name="wheel_radius" value="${0.203/2}"/>
     <xacro:property name="wheel_width"  value="0.078"     />
-    <xacro:property name="shaft_length" value="0.1"       />
-    <xacro:property name="shaft_radius" value="0.005"     />
 
 
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot.gazebo"/>
@@ -27,70 +27,13 @@
 
     <!-- Adding the main body -->
 
-    <joint name="base_link_joint" type="fixed">
+    <xacro:base_link parent="base_footprint">
         <origin xyz="0 0 ${wheel_radius + base_link_height/2}" rpy="0 0 0" />
-        <parent link="base_footprint"/>
-        <child link="base_link" />
-    </joint>
+    </xacro:base_link>
 
-    <link name="base_link">
-        <visual>
-            <origin rpy=" 0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <mesh filename="package://cerlab_mecanum/meshes/escarabajo_armado.stl" scale="0.001 0.001 0.001"/>
-            </geometry>
-            <material name="dark_grey"/>
-        </visual>
-        <collision>
-            <origin rpy=" 0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <mesh filename="package://cerlab_mecanum/meshes/escarabajo_armado.stl" scale="0.001 0.001 0.001"/>
-            </geometry>
-        </collision>
-        <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="8.0"/>
-            <inertia
-                ixx="0.1" ixy="0" ixz="0"
-                iyy="0.1" iyz="0"
-                izz="0.1"
-            />
-        </inertial>
-    </link>
-
-
-    <!-- Adding the base of the main body (visual purposes only) -->
-
-    <joint name="base_plate_link_joint" type="fixed">
-        <origin xyz="0 0.03 ${wheel_radius + 0.02}" rpy="0 0 0" />
-        <parent link="base_footprint"/>
-        <child link="base_plate_link" />
-    </joint>
-
-    <link name="base_plate_link">
-        <visual>
-            <origin rpy=" 0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <box size="${base_link_length} ${base_link_width - 0.05} 0.001" />
-            </geometry>
-            <material name="dark_grey"/>
-        </visual>
-        <collision>
-            <origin rpy=" 0 0 0" xyz="0 0 0"/>
-            <geometry>
-                <mesh filename="package://cerlab_mecanum/meshes/escarabajo_armado.stl" scale="0.001 0.001 0.001"/>
-            </geometry>
-        </collision>
-        <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <mass value="8.0"/>
-            <inertia
-                ixx="0.1" ixy="0" ixz="0"
-                iyy="0.1" iyz="0"
-                izz="0.1"
-            />
-        </inertial>
-    </link>
+    <xacro:base_plate_link parent="base_footprint" length="${base_link_length}" width="${base_link_width - 0.032}" height="0.001">
+        <origin xyz="0 0.023 ${wheel_radius + 0.02}" rpy="0 0 0" />
+    </xacro:base_plate_link>
 
 
     <!-- Adding mecanum wheels -->
@@ -114,66 +57,12 @@
 
     <!-- Adding LiDAR sensors -->
 
-    <joint name="front_scan_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_scan_front"/>
+    <xacro:lidar prefix="front" parent="base_link">
         <origin xyz="0 ${base_link_width/2-0.046} ${base_link_height/2+0.05}" rpy="0 0 0"/>
-    </joint>
+    </xacro:lidar>
 
-    <link name="base_scan_front">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://cerlab_mecanum/meshes/hokuyo.stl" scale="1 1 1"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-
-        <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-            <cylinder length="0.0315" radius="0.055"/>
-        </geometry>
-        </collision>
-
-        <inertial>
-        <mass value="0.114" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                iyy="0.001" iyz="0.0"
-                izz="0.001" />
-        </inertial>
-    </link>
-
-    <joint name="back_scan_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="base_scan_back"/>
+    <xacro:lidar prefix="back" parent="base_link">
         <origin xyz="0 ${-base_link_width/2+0.1} ${base_link_height/2+0.05}" rpy="0 0 0"/>
-    </joint>
-
-    <link name="base_scan_back">
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://cerlab_mecanum/meshes/hokuyo.stl" scale="1 1 1"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-
-        <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry>
-            <cylinder length="0.0315" radius="0.055"/>
-        </geometry>
-        </collision>
-
-        <inertial>
-        <mass value="0.114" />
-        <origin xyz="0 0 0" />
-        <inertia ixx="0.001" ixy="0.0" ixz="0.0"
-                iyy="0.001" iyz="0.0"
-                izz="0.001" />
-        </inertial>
-    </link>
+    </xacro:lidar>
 
 </robot>

@@ -20,70 +20,14 @@
         <material>Gazebo/DarkGrey</material>
     </gazebo>
 
-    <gazebo reference="wheel_xpyp_shaft">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xpyp">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/BlackTransparent</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xpyn_shaft">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xpyn">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/BlackTransparent</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xnyp_shaft">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xnyp">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/BlackTransparent</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xnyn_shaft">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/Grey</material>
-    </gazebo>
-
-    <gazebo reference="wheel_xnyn">
-        <!-- Define friction coefficients and colors -->
-        <mu1>0.2</mu1>
-        <mu2>0.2</mu2>
-        <material>Gazebo/BlackTransparent</material>
-    </gazebo>
-
-    <gazebo reference="base_scan_front">
+    <gazebo reference="front_lidar_link">
         <!-- Define friction coefficients and colors -->
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>
         <material>Gazebo/Black</material>
     </gazebo>
 
-    <gazebo reference="base_scan_back">
+    <gazebo reference="back_lidar_link">
         <!-- Define friction coefficients and colors -->
         <mu1>0.2</mu1>
         <mu2>0.2</mu2>

@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="base_link">
+
+    <xacro:macro name="base_link" params="parent *origin">
+        <joint name="base_link_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}"/>
+            <child link="base_link" />
+        </joint>
+
+        <link name="base_link">
+            <visual>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://cerlab_mecanum/meshes/escarabajo_armado.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="dark_grey"/>
+            </visual>
+            <collision>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://cerlab_mecanum/meshes/escarabajo_armado.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="8.0"/>
+                <inertia
+                    ixx="0.1" ixy="0" ixz="0"
+                    iyy="0.1" iyz="0"
+                    izz="0.1"
+                />
+            </inertial>
+        </link>
+    </xacro:macro>
+
+
+        <!-- Adding the base of the main body (visual purposes only) -->
+    <xacro:macro name="base_plate_link" params="parent *origin length width height">
+        <joint name="base_plate_link_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}"/>
+            <child link="base_plate_link" />
+        </joint>
+
+        <link name="base_plate_link">
+            <visual>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <box size="${length} ${width} ${height}" />
+                </geometry>
+                <material name="dark_grey"/>
+            </visual>
+            <collision>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <box size="${length} ${width} ${height}" />
+                </geometry>
+            </collision>
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.5"/>
+                <inertia
+                    ixx="0.1" ixy="0" ixz="0"
+                    iyy="0.1" iyz="0"
+                    izz="0.1"
+                />
+            </inertial>
+        </link>
+    </xacro:macro>
+</robot>
