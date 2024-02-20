@@ -65,4 +65,38 @@
         <origin xyz="0 ${-base_link_width/2+0.1} ${base_link_height/2+0.05}" rpy="0 0 0"/>
     </xacro:lidar>
 
+    <!-- Adding the movement control -->
+    <gazebo>
+        <plugin name="movement_controller" filename="libgazebo_ros_planar_move.so">
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <odometryRate>20.0</odometryRate>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+        </plugin>
+    </gazebo>
+
+    <!-- <gazebo>
+        <plugin name="gazebo_ros_mecanum_diff_drive" filename="libgazebo_ros_mecanum_drive.so">
+            <commandTopic>cmd_vel</commandTopic>
+            <odometryTopic>odom</odometryTopic>
+            <odometryFrame>odom</odometryFrame>
+            <robotBaseFrame>base_footprint</robotBaseFrame>
+            <LeftRear>xnyn_wheel_joint</LeftRear>
+            <LeftFront>xnyp_wheel_joint</LeftFront>
+            <RightFront>xpyp_wheel_joint</RightFront>
+            <RightRear>xpyn_wheel_joint</RightRear>
+            <odometryRate>20</odometryRate>      
+            <publishWheelTF>true</publishWheelTF>
+            <publishWheelJointState>true</publishWheelJointState>
+            <WheelTorque>1</WheelTorque>
+            <WheelSeparationW>0.5</WheelSeparationW>
+            <WheelSeparationL>0.6</WheelSeparationL>
+            <wheelAccel>5</wheelAccel>
+            <wheelDiameter>${wheel_radius*2}</wheelDiameter>
+            <publishOdom>false</publishOdom>
+            <isRollerModel>true</isRollerModel>
+        </plugin>
+    </gazebo> -->
+
 </robot>

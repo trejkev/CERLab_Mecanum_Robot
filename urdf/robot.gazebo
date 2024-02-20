@@ -20,6 +20,30 @@
         <material>Gazebo/DarkGrey</material>
     </gazebo>
 
+    <gazebo reference="xpyp_wheel_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="xpyn_wheel_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="xnyp_wheel_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
+    <gazebo reference="xnyn_wheel_link">
+        <!-- Define friction coefficients and colors -->
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+    </gazebo>
+
     <gazebo reference="front_lidar_link">
         <!-- Define friction coefficients and colors -->
         <mu1>0.2</mu1>
