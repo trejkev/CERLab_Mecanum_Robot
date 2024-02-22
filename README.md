@@ -12,8 +12,9 @@ The simulated robot looks just like the real robot, see the first and second ima
 </p>
 
 <p align="center">
-  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/2e21e592-5d20-4568-9c70-0cabc4dd2a3a" width="600" />
+  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/9b2c41c3-baca-416b-a209-c6814dc0385e" width="600" />
 </p>
+
 
 The robot is a functional replica of the CERLab platforms, it uses both LiDARs and has real mecanum movement, controlled by the gazebo plugin gazebo_mecanum_plugins.
 
