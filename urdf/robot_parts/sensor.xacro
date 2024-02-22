@@ -38,7 +38,7 @@
         <gazebo reference="${prefix}_lidar_link">
             <sensor type="gpu_ray" name="${prefix}_head_hokuyo_sensor">
                 <pose>0 0 0 0 0 0</pose>
-                <visualize>true</visualize>
+                <visualize>false</visualize>
                 <update_rate>40</update_rate>
                 <ray>
                     <scan>
@@ -65,6 +65,13 @@
                     <frameName>${prefix}_lidar_link</frameName>
                 </plugin>
             </sensor>
+        </gazebo>
+
+        <gazebo reference="${prefix}_lidar_link">
+            <!-- Define friction coefficients and colors -->
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <material>Gazebo/Black</material>
         </gazebo>
     </xacro:macro>
 

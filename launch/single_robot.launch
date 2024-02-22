@@ -13,4 +13,11 @@
 
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model cerlab_mecanum -param robot_description"/>
 
+    <!-- Convert joint states to transforms for rviz -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+    <!-- Publish joint values -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+	
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cerlab_mecanum)/urdf.rviz" required="true" />
 </launch>

@@ -23,7 +23,7 @@
             <xacro:insert_block name="origin" />
             <axis xyz="0 1 0" rpy="0 0 0" />
             <limit effort="100" velocity="100"/>
-            <joint_properties damping="0.0" friction="0.0"/>
+            <dynamics damping="3.0" friction="5.0"/>
         </joint>
 
         <link name="${prefix}_wheel_link">
@@ -61,18 +61,15 @@
             <joint name="${prefix}_wheel_joint" >
                 <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
             </joint>
-            <actuator name="${prefix}_wheel_joint_motor">
-                <mechanicalReduction>1</mechanicalReduction>
-            </actuator>
         </transmission>
 
         <gazebo reference="${prefix}_wheel_link">
-            <mu1 value="1.0"/>
-            <mu2 value="1.0"/>
-            <kp value="10000000.0" />
-            <kd value="1.0" />
-            <fdir1 value="1 0 0"/>
-            <turnGravityOff>false</turnGravityOff>
+            <gravity>true</gravity>
+            <selfCollide>false</selfCollide>
+            <mu1>30</mu1>
+            <mu2>30</mu2>
+            <kp>1e50</kp>
+            <kd>1e50</kd>
         </gazebo>
 
     </xacro:macro>
