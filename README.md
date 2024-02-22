@@ -1,7 +1,8 @@
 # CERLab_Mecanum_Robot
-Descriptor files for the CERLab Mecanum Robots, see: https://cerlab.ucr.ac.cr/es/node/202
 
-The simulated robot looks just like the simulated robot shown in the following image, which is a shell replica of the CERLab Mecanum robots, see the second image for reference.
+Simulated version of the CERLab Mecanum Robots, see: https://cerlab.ucr.ac.cr/es/node/202
+
+The simulated robot looks just like the real robot, see the first and second images, it is a shell replica of the CERLab Mecanum robots, see the third image for reference.
 
 <p align="center">
   <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/af0eebfd-0583-43fe-911a-ac974938921e" width="600" />
@@ -14,7 +15,7 @@ The simulated robot looks just like the simulated robot shown in the following i
   <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/2e21e592-5d20-4568-9c70-0cabc4dd2a3a" width="600" />
 </p>
 
-The robot is a functional replica of the CERLab platforms, it uses both LiDARs and has real mecanum movement, controlled by the gazebo plugin gazebo_mecanum_plugins, and use kinetic branch for ROS1 tests.
+The robot is a functional replica of the CERLab platforms, it uses both LiDARs and has real mecanum movement, controlled by the gazebo plugin gazebo_mecanum_plugins.
 
 ## Prerequisites:
 1. Make sure you have everything needed to simulate with Gazebo. The robot was developed using Gazebo 9.
