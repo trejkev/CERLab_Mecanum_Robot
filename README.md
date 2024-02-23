@@ -5,10 +5,11 @@ Simulated version of the CERLab Mecanum Robots, see: https://cerlab.ucr.ac.cr/es
 The simulated robot looks just like the real robot, see the first and second images, it is a shell replica of the CERLab Mecanum robots, see the third image for reference.
 
 <p align="center">
-  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/af0eebfd-0583-43fe-911a-ac974938921e" width="600" />
+  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/bd5e0dfb-f88a-49bc-9b43-27bb6d70baef" width="600" />
 </p>
+
 <p align="center">
-  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/caf69869-f814-48b6-8b9d-1f3c3dfd50f8" width="600" />
+  <img src="https://github.com/trejkev/cerlab_mecanum/assets/18760154/0bdda1b0-13c4-40d1-b4a0-db7eee90de76" width="600" />
 </p>
 
 <p align="center">
