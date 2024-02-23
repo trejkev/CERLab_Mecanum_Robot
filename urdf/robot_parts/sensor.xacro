@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <robot name="sensor" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:property name="PI" value="3.1415926535897931" />
+
     <xacro:macro name="lidar" params="prefix parent *origin">
         <joint name="${prefix}_lidar_joint" type="fixed">
             <parent link="${parent}"/>
@@ -45,8 +47,8 @@
                         <horizontal>
                             <samples>720</samples>
                             <resolution>1</resolution>
-                            <min_angle>-1.570796</min_angle>
-                            <max_angle>1.570796</max_angle>
+                            <min_angle>${-PI}</min_angle>
+                            <max_angle>${PI}</max_angle>
                         </horizontal>
                     </scan>
                     <range>
@@ -68,9 +70,6 @@
         </gazebo>
 
         <gazebo reference="${prefix}_lidar_link">
-            <!-- Define friction coefficients and colors -->
-            <mu1>0.2</mu1>
-            <mu2>0.2</mu2>
             <material>Gazebo/Black</material>
         </gazebo>
     </xacro:macro>

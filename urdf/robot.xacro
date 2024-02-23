@@ -2,11 +2,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="cerlab_mecanum">
 
     <!-- Bring robot parts to the model -->
-    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/mecanum_wheel.xacro"/>
-    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/base_link.xacro"    />
-    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/sensor.xacro"       />
-    
-    <!-- Robot geometry parameters -->
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/mecanum_wheel.xacro"    />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/base_link.xacro"        />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/sensor.xacro"           />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/emergency_button.xacro" />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/fan.xacro"              />
+
     <xacro:property name="PI" value="3.1415926535897931" />
 
     <!-- Robot body ( base link ) parameters -->
@@ -64,5 +65,53 @@
     <xacro:lidar prefix="back" parent="base_link">
         <origin xyz="0 ${-base_link_width/2+0.1} ${base_link_height/2+0.05}" rpy="0 0 0"/>
     </xacro:lidar>
+
+
+    <!-- Adding the emergency buttons (visual feedback only) -->
+
+    <xacro:emergency_button prefix="front" parent="base_link">
+        <origin xyz="0 ${base_link_width/2+0.017} 0" rpy="${-PI/2} 0 0"/>
+    </xacro:emergency_button>
+
+    <xacro:emergency_button prefix="back" parent="base_link">
+        <origin xyz="0 ${-base_link_width/2+0.03} 0" rpy="${PI/2} 0 0"/>
+    </xacro:emergency_button>
+
+
+    <!-- Adding power button (visual feedback only) -->
+    <joint name="power_button_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="power_button_link"/>
+        <origin xyz="0 ${-base_link_width/2+0.047} 0.0415" rpy="${PI/2} 0 0"/>
+    </joint>
+
+        <link name="power_button_link">
+            <visual>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://cerlab_mecanum/meshes/power_button.stl" scale="0.0011 0.0011 0.0011"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin rpy=" 0 0 0" xyz="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://cerlab_mecanum/meshes/power_button.stl" scale="0.0011 0.0011 0.0011"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <gazebo reference="power_button_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+    
+    <!-- Adding fans (visual feedback only) -->
+
+    <xacro:fan prefix="left" parent="base_link">
+        <origin xyz="-0.08 ${-base_link_width/2+0.055} ${0.0415/2+0.01}" rpy="${PI/2} 0 0"/>
+    </xacro:fan>
+
+    <xacro:fan prefix="right" parent="base_link">
+        <origin xyz="0.08 ${-base_link_width/2+0.055} ${0.0415/2+0.01}0" rpy="${PI/2} 0 0"/>
+    </xacro:fan>
 
 </robot>
