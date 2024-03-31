@@ -4,7 +4,8 @@
     <!-- Bring robot parts to the model -->
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/mecanum_wheel.xacro"    />
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/base_link.xacro"        />
-    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/sensor.xacro"           />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/lidar.xacro"            />
+    <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/imu.xacro"              />
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/emergency_button.xacro" />
     <xacro:include filename="$(find cerlab_mecanum)/urdf/robot_parts/fan.xacro"              />
 
@@ -65,6 +66,9 @@
     <xacro:lidar prefix="back" parent="base_link">
         <origin xyz="0 ${-base_link_width/2+0.1} ${base_link_height/2+0.05}" rpy="0 0 0"/>
     </xacro:lidar>
+
+    <!-- Adding the Inertial Measurement Unit (IMU) -->
+    <xacro:imu/>
 
 
     <!-- Adding the emergency buttons (visual feedback only) -->
