@@ -31,7 +31,7 @@ The robot is a functional replica of the CERLab platforms, it uses both LiDARs a
 4. In a terminal execute roscore.
 5. Once ROS core is up and running, in another terminal launch the robot with the following command:
 
-        roslaunch cerlab_mecanum single_robot.launch</span>
+        roslaunch cerlab_mecanum single_robot.launch
 
    It will launch the robot in a Gazebo environment and also open Rviz configured to show the robot, its movement, and its sensors data.
 6. At last, execute the teleoperation node to control the robot movement in an extra terminal, use the following command:
