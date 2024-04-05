@@ -4,14 +4,14 @@
     <xacro:macro name="imu">
         <gazebo>
             <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
-            <alwaysOn>true</alwaysOn>
-            <bodyName>base_link</bodyName>
-            <topicName>imu</topicName>
-            <serviceName>imu_service</serviceName>
-            <xyzOffsets>25.65 25.65 0</xyzOffsets> <!-- option to initialize odometry for fake localization-->
-            <rpyOffsets>0 0 0</rpyOffsets>
-            <gaussianNoise>0.0</gaussianNoise>
-            <updateRate>20.0</updateRate>
+                <alwaysOn>true</alwaysOn>
+                <bodyName>base_link</bodyName>
+                <topicName>imu</topicName>
+                <serviceName>imu_service</serviceName>
+                <xyzOffsets>25.65 25.65 0</xyzOffsets> <!-- option to initialize odometry for fake localization-->
+                <rpyOffsets>0 0 0</rpyOffsets>
+                <gaussianNoise>0.0</gaussianNoise>
+                <updateRate>20.0</updateRate>
             </plugin>
         </gazebo>
     </xacro:macro>
