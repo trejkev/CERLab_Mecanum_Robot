@@ -36,6 +36,6 @@ The robot is a functional replica of the CERLab platforms, it uses both LiDARs a
    It will launch the robot in a Gazebo environment and also open Rviz configured to show the robot, its movement, and its sensors data.
 6. At last, execute the teleoperation node to control the robot movement in an extra terminal, use the following command:
 
-       rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/cerlab_mec/cmd_vel
+       rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/cmd_vel
 
    It will allow you to use the teleoperation keyboard to control the robot.
