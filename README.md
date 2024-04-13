@@ -17,7 +17,7 @@ The simulated robot looks just like the real robot, see the first and second ima
 </p>
 
 
-The robot is a functional replica of the CERLab platforms, it uses both LiDARs and has real mecanum movement, controlled by the gazebo plugin gazebo_mecanum_plugins.
+The robot is a functional replica of the CERLab platforms, it uses both LiDARs, an IMU, and has real mecanum movement, controlled by the gazebo plugin gazebo_mecanum_plugins.
 
 ## Prerequisites:
 1. Make sure you have everything needed to simulate with Gazebo. The robot was developed using Gazebo 9.
