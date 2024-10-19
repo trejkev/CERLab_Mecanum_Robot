@@ -39,3 +39,12 @@ The robot is a functional replica of the CERLab platforms, it uses both LiDARs, 
        rosrun teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/cmd_vel
 
    It will allow you to use the teleoperation keyboard to control the robot.
+
+## Running with Gmapping (SLAM)
+Since Gmapping is an already-embedded SLAM algorithm, making it work with the robot is quite simple, you just have to worry about telling it which LiDAR Topic to read, which in this case can be either /laser/fron_scan or /laser/back_scan. Use the following command to launch it:
+
+      rosrun gmapping slam_gmapping scan:=/laser/front_scan
+
+Add some figures in Gazebo to make the algorithm detect some landmarks and let the SLAM magic work.
+
+You will also need to add the map in Rviz, in order to do so, proceed to click the Add button on the bottom-left side of Rviz, and look for the Map feature, once you add it, set the topic to /map and that is it.
