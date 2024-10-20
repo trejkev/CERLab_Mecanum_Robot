@@ -47,4 +47,9 @@ Since Gmapping is an already-embedded SLAM algorithm, making it work with the ro
 
 Add some figures in Gazebo to make the algorithm detect some landmarks and let the SLAM magic work.
 
-You will also need to add the map in Rviz, in order to do so, proceed to click the Add button on the bottom-left side of Rviz, and look for the Map feature, once you add it, set the topic to /map and that is it.
+You will also need to add the map in Rviz. To do so, proceed to click the Add button on the bottom-left side of Rviz and look for the Map feature. Once you add it, set the topic to /map, and that is it. It will look just like the following capture of Rviz, note that the robot has a red circle around it, corresponding to the laser scans from the front and back LiDAR, and there are also two boxes and a cylinder, they were added into Gazebo arena.
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/3ac0a710-1867-46cd-98a0-2045b72c76be" width="600" />
+</p>
+
